@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dos escrituras sobre la Plaza de Mayo</title>
+<meta name="description" content="La Plaza de Mayo como paisaje multimodal: la memoria escribe en el suelo y en círculo; el control, en el borde y en vertical. Cinco piezas leídas desde el archivo público.">
+<meta property="og:title" content="Dos escrituras sobre la Plaza de Mayo">
+<meta property="og:description" content="Un paisaje multimodal leído desde su archivo público: pañuelos, rejas, ronda, sonido y monumento.">
+<meta property="og:image" content="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Video_a%C3%A9reo_de_la_ronda_de_las_Abuelas_de_Plaza_de_Mayo.webm/1280px--Video_a%C3%A9reo_de_la_ronda_de_las_Abuelas_de_Plaza_de_Mayo.webm.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..800;1,400..800&family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --losa: #DAD8D2;        /* piso claro: fondo de lectura */
+  --losa-2: #CDCBC4;      /* paneles */
+  --piedra: #343532;      /* granito oscuro: portada y síntesis */
+  --piedra-2: #42433F;
+  --anillo: #5E5F5A;      /* el anillo de la ronda */
+  --cal: #F5F4EF;         /* la pintura de los pañuelos */
+  --hierro: #1D1E1F;      /* tinta */
+  --tinta-2: #4B4C48;
+  --rosada: #D49A91;      /* la Casa Rosada: lo que escribe el Estado */
+  --rosada-osc: #8E544C;
+  --jardin: #3D4A3A;
+  --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Alegreya", Georgia, serif;
+  --ancho: 1200px;
+  --margen: clamp(16px, 4vw, 48px);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--losa);
+  color: var(--hierro);
+  font-family: var(--serif);
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img, video, iframe { max-width: 100%; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--rosada); outline-offset: 3px; }
+.envoltura { max-width: var(--ancho); margin: 0 auto; padding: 0 var(--margen); }
+h1, h2, h3, .sans { font-family: var(--sans); }
+p { margin: 0 0 0.9em; }
+
+/* ---------- Portada ---------- */
+.portada {
+  background: var(--piedra);
+  color: var(--cal);
+  padding: clamp(28px, 5vw, 64px) 0 clamp(32px, 5vw, 56px);
+}
+.portada .envoltura {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+}
+.portada h1 {
+  font-variation-settings: "wdth" 118;
+  font-weight: 760;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.012em;
+  margin: 0 0 0.45em;
+}
+.portada .bajada { font-size: 1.25rem; line-height: 1.5; max-width: 34ch; }
+.portada .firma {
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: #C9C8C2;
+  margin-top: 1.6em;
+  max-width: 44ch;
+}
+.plano-caja { position: relative; }
+.plano { width: 100%; height: auto; display: block; }
+.plano .calle { font-family: var(--sans); font-size: 15px; fill: #B9B8B2; }
+.plano .edificio { font-family: var(--sans); font-size: 15px; font-weight: 600; }
+.plano .radio { stroke: rgba(245,244,239,0.28); stroke-width: 1; }
+.plano .panuelo { fill: var(--cal); }
+.plano .panuelo .cara { fill: var(--anillo); }
+.plano .punto circle.marca { fill: var(--piedra); stroke: var(--cal); stroke-width: 2.5; }
+.plano .punto .chapa { fill: var(--cal); }
+.plano .punto text { font-family: var(--sans); font-size: 17px; font-weight: 650; fill: var(--hierro); }
+.plano .punto:hover .chapa, .plano .punto:focus .chapa { fill: var(--rosada); }
+.plano .punto:focus { outline: none; }
+.plano .punto:focus-visible circle.marca { stroke: var(--rosada); stroke-width: 4; }
+.plano .rejas { opacity: 0; transition: opacity 0.4s ease; }
+.plano.ver-rejas .rejas { opacity: 1; }
+.plano .rejas text { font-family: var(--sans); font-size: 14px; font-weight: 600; fill: var(--rosada); }
+@media (prefers-reduced-motion: no-preference) {
+  .plano .panuelo { opacity: 0; animation: pintar 0.5s ease forwards; animation-delay: calc(0.35s + var(--i) * 55ms); }
+  @keyframes pintar { to { opacity: 1; } }
+}
+.leyenda {
+  display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center;
+  font-family: var(--sans); font-size: 0.9375rem; margin-top: 14px; color: #D8D7D1;
+}
+.leyenda .muestra { display: inline-block; width: 22px; height: 10px; vertical-align: middle; margin-right: 8px; border-radius: 1px; }
+.leyenda .muestra.blanca { background: var(--cal); }
+.leyenda .muestra.rosa { background: var(--rosada); }
+.boton {
+  font-family: var(--sans); font-size: 0.9375rem; font-weight: 600;
+  background: transparent; color: var(--cal);
+  border: 1.5px solid var(--cal); border-radius: 3px;
+  padding: 7px 14px; cursor: pointer;
+}
+.boton[aria-pressed="true"] { background: var(--rosada); color: var(--hierro); border-color: var(--rosada); }
+.indice { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.indice a { font-family: var(--sans); font-size: 0.9375rem; font-weight: 600; color: var(--cal); text-decoration: none; border: 1px solid rgba(245,244,239,0.45); border-radius: 3px; padding: 5px 10px; }
+.indice a:hover { border-color: var(--cal); background: var(--piedra-2); }
+.nota-plano { font-family: var(--sans); font-size: 0.8125rem; color: #A9A8A2; margin-top: 8px; }
+
+/* ---------- Marco ---------- */
+.marco { padding: clamp(40px, 6vw, 72px) 0 clamp(24px, 4vw, 40px); }
+.marco .columnas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); }
+.marco h2 { font-variation-settings: "wdth" 108; font-weight: 700; font-size: 1.375rem; line-height: 1.2; margin: 0 0 0.5em; }
+.marco p { font-size: 1.0625rem; }
+.mapa { border: 0; width: 100%; aspect-ratio: 4 / 3; display: block; background: var(--losa-2); }
+.mapa-pie { font-family: var(--sans); font-size: 0.875rem; margin-top: 8px; }
+
+/* ---------- Piezas ---------- */
+.pieza { padding: clamp(40px, 6vw, 80px) 0; border-top: 1px solid #BDBBB4; scroll-margin-top: 12px; }
+.pieza .cabeza { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(20px, 3vw, 40px); align-items: end; margin-bottom: clamp(18px, 3vw, 28px); }
+.pieza h2 {
+  font-variation-settings: "wdth" 120;
+  font-weight: 780;
+  font-size: clamp(2.6rem, 6.4vw, 5.2rem);
+  line-height: 0.92;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+.pieza .subtitulo { font-family: var(--sans); font-size: 1.125rem; font-weight: 600; margin: 0.35em 0 0; }
+.pieza .tesis { font-style: italic; font-size: 1.25rem; line-height: 1.45; margin: 0; color: var(--tinta-2); }
+.pieza .cuerpo { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(20px, 3vw, 40px); align-items: start; }
+figure { margin: 0; }
+figure img, figure video { display: block; width: 100%; height: auto; background: var(--losa-2); }
+figcaption { font-family: var(--sans); font-size: 0.875rem; line-height: 1.45; color: var(--tinta-2); margin-top: 8px; }
+.medios-extra { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+.sonido-embed { border: 0; width: 100%; max-width: 481px; height: 86px; display: block; background: var(--losa-2); }
+.sonido + figcaption { margin-bottom: 18px; }
+
+/* Pestañas */
+.analisis { background: var(--cal); padding: 18px clamp(16px, 2.4vw, 26px) 8px; border-radius: 2px; }
+.pestanas { display: flex; gap: 4px; border-bottom: 1px solid #C9C7C0; margin-bottom: 16px; }
+.pestanas button {
+  font-family: var(--sans); font-size: 1rem; font-weight: 650;
+  background: none; border: 0; padding: 8px 12px 10px; cursor: pointer; color: var(--tinta-2);
+  border-bottom: 3px solid transparent; margin-bottom: -1px;
+}
+.pestanas button[aria-selected="true"] { color: var(--hierro); border-bottom-color: var(--hierro); }
+.panel p { font-size: 1.0625rem; line-height: 1.58; }
+.panel b { font-family: var(--sans); font-weight: 650; font-size: 0.96em; }
+.panel[hidden] { display: none; }
+
+/* Capas de tiempo */
+.capas { margin-top: clamp(24px, 4vw, 40px); }
+.capas h3 { font-variation-settings: "wdth" 104; font-weight: 700; font-size: 1.125rem; margin: 0 0 12px; }
+.capas ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px 20px; }
+.capas li { font-size: 0.97rem; line-height: 1.45; }
+.capas li img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; margin-bottom: 8px; background: var(--losa-2); }
+.capas .anio { font-family: var(--sans); font-variation-settings: "wdth" 112; font-weight: 750; font-size: 1.25rem; display: block; }
+.capas li:not(:has(img)) { border-top: 1px solid #BDBBB4; padding-top: 10px; }
+.capas .fuente { font-family: var(--sans); font-size: 0.8125rem; color: var(--tinta-2); display: block; margin-top: 4px; }
+
+/* ---------- Síntesis ---------- */
+.sintesis { background: var(--piedra); color: var(--cal); padding: clamp(44px, 6vw, 84px) 0; }
+.sintesis h2, .tiempo h2, .pantalla h2, .creditos h2 {
+  font-variation-settings: "wdth" 116; font-weight: 760; font-size: clamp(2rem, 4.2vw, 3.2rem); line-height: 1; margin: 0 0 0.6em; letter-spacing: -0.01em;
+}
+.tabla-caja { overflow-x: auto; margin-bottom: clamp(24px, 4vw, 40px); }
+table { border-collapse: collapse; width: 100%; min-width: 760px; font-family: var(--sans); font-size: 0.9375rem; line-height: 1.4; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-bottom: 1px solid rgba(245,244,239,0.22); }
+th { font-weight: 700; color: #CFCEC8; }
+td:first-child { font-weight: 700; white-space: nowrap; }
+.chip { display: inline-block; padding: 1px 7px; border-radius: 2px; font-size: 0.8125rem; font-weight: 650; margin: 0 4px 3px 0; color: var(--hierro); }
+.chip.abajo { background: var(--cal); }
+.chip.arriba { background: var(--rosada); }
+.sintesis .columnas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 44px); }
+.sintesis h3 { font-family: var(--sans); font-variation-settings: "wdth" 104; font-weight: 700; font-size: 1.125rem; margin: 0 0 0.4em; color: var(--cal); }
+.sintesis p { font-size: 1.0625rem; color: #E6E5DF; }
+
+/* ---------- Línea de tiempo ---------- */
+.tiempo { padding: clamp(44px, 6vw, 84px) 0; }
+.tiempo ol { list-style: none; margin: 0; padding: 0; max-width: 900px; }
+.tiempo li { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 18px; padding: 12px 0; border-top: 1px solid #C2C0B9; }
+.tiempo .anio { font-family: var(--sans); font-variation-settings: "wdth" 118; font-weight: 760; font-size: 1.5rem; line-height: 1.2; }
+.tiempo p { margin: 0; font-size: 1.0625rem; }
+.tiempo .estado { border-left: 5px solid var(--rosada); padding-left: 12px; }
+.tiempo .memoria { border-left: 5px solid #FFFFFF; box-shadow: -1px 0 0 #9C9A94; padding-left: 12px; }
+.tiempo .clave { font-family: var(--sans); font-size: 0.875rem; color: var(--tinta-2); margin-bottom: 18px; }
+.tiempo .clave span { display: inline-block; width: 14px; height: 14px; vertical-align: -2px; margin-right: 6px; border: 1px solid #9C9A94; }
+
+/* ---------- Pantalla y créditos ---------- */
+.pantalla { padding: clamp(44px, 6vw, 84px) 0; background: var(--losa-2); }
+.pantalla .texto { max-width: 68ch; }
+.pantalla p { font-size: 1.1875rem; }
+.creditos { padding: clamp(44px, 6vw, 84px) 0 clamp(56px, 8vw, 96px); }
+.creditos h3 { font-family: var(--sans); font-variation-settings: "wdth" 104; font-weight: 700; font-size: 1.125rem; margin: 2em 0 0.6em; }
+.creditos table { min-width: 680px; }
+.creditos th, .creditos td { border-bottom-color: #C2C0B9; }
+.creditos th { color: var(--tinta-2); }
+.creditos td:first-child { white-space: normal; font-weight: 600; }
+.creditos ul { padding-left: 1.1em; margin: 0; }
+.creditos li { font-size: 0.97rem; line-height: 1.5; margin-bottom: 0.45em; }
+.biblio li { padding-left: 1.6em; text-indent: -1.6em; list-style: none; }
+.biblio { padding-left: 0 !important; }
+.declaracion { max-width: 72ch; font-size: 1.0625rem; }
+.oculto { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+footer { font-family: var(--sans); font-size: 0.875rem; color: var(--tinta-2); padding: 0 0 48px; }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 900px) {
+  .portada .envoltura, .pieza .cabeza, .pieza .cuerpo, .sintesis .columnas { grid-template-columns: minmax(0, 1fr); }
+  .marco .columnas { grid-template-columns: minmax(0, 1fr); }
+  .portada .bajada { max-width: none; }
+  .medios-extra { grid-template-columns: minmax(0, 1fr); }
+  .tiempo li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+}
+</style>
+</head>
+<body>
+
+<header class="portada">
+  <div class="envoltura">
+    <div>
+      <h1>Dos escrituras sobre la Plaza de Mayo</h1>
+      <p class="bajada">La memoria escribe en el suelo y camina en círculo. El control escribe en el borde y de pie. Esta infografía lee las dos, y lo que pasa cuando se tocan, en cinco piezas tomadas del archivo público.</p>
+      <p class="bajada">Elegí un punto del plano para abrir su pieza.</p>
+      <p class="firma">Eugenio Torres Flawiá<br>Lingüística Multimodal, Maestría en Humanidades Digitales (UNTREF)<br>Proyecto Paisajes multimodales, noviembre de 2026</p>
+    </div>
+
+    <div class="plano-caja">
+      <svg class="plano" id="plano" viewBox="0 0 900 660" role="group" aria-labelledby="plano-titulo plano-desc">
+        <title id="plano-titulo">Plano esquemático de la Plaza de Mayo</title>
+        <desc id="plano-desc">Vista desde arriba del círculo que rodea la Pirámide de Mayo: un jardín enrejado en el centro, un anillo de piso con líneas radiales y pañuelos pintados en blanco. La Casa Rosada queda al este, el Cabildo al oeste y la Catedral al norte. Cinco puntos llevan a las piezas del análisis.</desc>
+
+        <!-- Plaza y entorno -->
+        <rect x="60" y="44" width="780" height="572" rx="3" fill="#3C3D3A"/>
+        <text class="calle" x="450" y="30" text-anchor="middle">Rivadavia</text>
+        <text class="calle" x="450" y="646" text-anchor="middle">Hipólito Yrigoyen</text>
+        <text class="calle" x="14" y="336">Av. de</text>
+        <text class="calle" x="14" y="354">Mayo</text>
+        <rect x="8" y="388" width="44" height="132" fill="#CFCBC2"/>
+        <text class="edificio" x="30" y="545" text-anchor="middle" fill="#CFCBC2">Cabildo</text>
+        <rect x="150" y="2" width="132" height="30" fill="#A9A59B"/>
+        <text class="edificio" x="216" y="22" text-anchor="middle" fill="#2C2C2A">Catedral</text>
+        <rect x="848" y="168" width="52" height="324" fill="#D49A91"/>
+        <text class="edificio" x="0" y="0" transform="translate(880 330) rotate(-90)" text-anchor="middle" fill="#2C2C2A">Casa Rosada</text>
+
+        <!-- Sonido que entra por Diagonal Norte -->
+        <g fill="none" stroke="#F5F4EF" stroke-opacity="0.45" stroke-width="2">
+          <path d="M 62 150 A 106 106 0 0 0 168 44"/>
+          <path d="M 62 112 A 68 68 0 0 0 130 44"/>
+          <path d="M 62 78 A 34 34 0 0 0 96 44"/>
+        </g>
+        <text class="calle" x="0" y="0" transform="translate(28 30) rotate(37)">Diag. Norte</text>
+
+        <!-- El círculo de la ronda -->
+        <circle cx="420" cy="330" r="252" fill="#4A4B47"/>
+        <circle cx="420" cy="330" r="232" fill="#5E5F5A"/>
+        <g id="radios"></g>
+        <circle cx="420" cy="330" r="104" fill="#343532"/>
+        <circle cx="420" cy="330" r="98" fill="#3D4A3A"/>
+        <!-- La reja del jardín: soporte del Estado con carteles -->
+        <circle cx="420" cy="330" r="101" fill="none" stroke="#D49A91" stroke-width="4" stroke-dasharray="2 5"/>
+        <g id="carteles" fill="#F5F4EF"></g>
+        <!-- La Pirámide -->
+        <rect x="404" y="314" width="32" height="32" fill="#D49A91" stroke="#F5F4EF" stroke-width="2"/>
+        <rect x="413" y="323" width="14" height="14" fill="#F2E7E4"/>
+        <g id="panuelos"></g>
+
+        <!-- Rejas y vallados (se muestran con el botón) -->
+        <g class="rejas" aria-hidden="true">
+          <line x1="742" y1="50" x2="742" y2="610" stroke="#D49A91" stroke-width="6"/>
+          <text x="0" y="0" transform="translate(728 330) rotate(-90)" text-anchor="middle">Reja permanente, mayo 2018 – diciembre 2019</text>
+          <line x1="824" y1="150" x2="824" y2="510" stroke="#D49A91" stroke-width="4" stroke-dasharray="10 7"/>
+          <text x="0" y="0" transform="translate(812 330) rotate(-90)" text-anchor="middle">Vallados en días de marcha, 2025</text>
+        </g>
+
+        <!-- Puntos de lectura -->
+        <a class="punto" href="#centro" aria-label="El centro: la Pirámide">
+          <circle class="marca" cx="420" cy="330" r="9"/>
+          <rect class="chapa" x="300" y="368" width="98" height="30" rx="2"/>
+          <text x="349" y="389" text-anchor="middle">El centro</text>
+        </a>
+        <a class="punto" href="#borde" aria-label="El borde: la reja de la Pirámide">
+          <circle class="marca" cx="507" cy="280" r="9"/>
+          <rect class="chapa" x="520" y="236" width="90" height="30" rx="2"/>
+          <text x="565" y="257" text-anchor="middle">El borde</text>
+        </a>
+        <a class="punto" href="#suelo" aria-label="El suelo: los pañuelos pintados">
+          <circle class="marca" cx="275" cy="475" r="9"/>
+          <rect class="chapa" x="168" y="500" width="86" height="30" rx="2"/>
+          <text x="211" y="521" text-anchor="middle">El suelo</text>
+        </a>
+        <a class="punto" href="#ronda" aria-label="La ronda de los jueves">
+          <circle class="marca" cx="420" cy="160" r="9"/>
+          <rect class="chapa" x="440" y="112" width="92" height="30" rx="2"/>
+          <text x="486" y="133" text-anchor="middle">La ronda</text>
+        </a>
+        <a class="punto" href="#sonido" aria-label="El sonido">
+          <circle class="marca" cx="104" cy="88" r="9"/>
+          <rect class="chapa" x="122" y="96" width="100" height="30" rx="2"/>
+          <text x="172" y="117" text-anchor="middle">El sonido</text>
+        </a>
+      </svg>
+      <div class="leyenda">
+        <span><span class="muestra blanca" aria-hidden="true"></span>Lo que escribe la memoria</span>
+        <span><span class="muestra rosa" aria-hidden="true"></span>Lo que escribe el Estado</span>
+        <button class="boton" id="ver-rejas" type="button" aria-pressed="false" aria-controls="plano">Mostrar rejas y vallados</button>
+      </div>
+      <nav class="indice" aria-label="Piezas del análisis">
+        <a href="#suelo">El suelo</a>
+        <a href="#borde">El borde</a>
+        <a href="#ronda">La ronda</a>
+        <a href="#sonido">El sonido</a>
+        <a href="#centro">El centro</a>
+        <a href="#conjunto">El conjunto</a>
+      </nav>
+      <p class="nota-plano">Esquema sin escala, dibujado a partir del video aéreo del 2 de octubre de 2025.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="marco" aria-label="Cómo está hecho">
+  <div class="envoltura">
+    <div class="columnas">
+      <div>
+        <h2>Qué es un paisaje multimodal</h2>
+        <p>Pons Rodríguez (2012) define el paisaje lingüístico como el conjunto de realizaciones del lenguaje que se ven por escrito en signos expuestos en un entorno público. La consigna amplía esa definición a todos los sentidos y a dos funciones, informativa y simbólica.</p>
+        <p>En la Plaza de Mayo manda la segunda: casi nada de lo que se escribe acá informa; casi todo recuerda, reclama o delimita.</p>
+        <p>Cada pieza se lee en las tres dimensiones del contexto de situación de Halliday (1982): campo, tenor y modo.</p>
+      </div>
+      <div>
+        <h2>Un corpus de segunda mano</h2>
+        <p>No recorrí la plaza para este trabajo. Las piezas vienen de Wikimedia Commons y Freesound, con autor, fecha y licencia libre, y se completan con prensa y normas.</p>
+        <p>Moustaoui (2019) pide prestar atención a las imágenes como datos y leer cada signo con su pasado, su presente y su futuro (p. 19). Por eso cada pieza trae sus capas de tiempo, y por eso los títulos y descripciones del archivo también entran en el análisis.</p>
+      </div>
+      <div>
+        <h2>Dónde queda</h2>
+        <iframe class="mapa" title="Mapa de la Plaza de Mayo en OpenStreetMap" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-58.3757%2C-34.6107%2C-58.3683%2C-34.6066&amp;layer=mapnik&amp;marker=-34.60893%2C-58.37216"></iframe>
+        <p class="mapa-pie">Comuna 1, Buenos Aires. Mapa: © colaboradores de <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>. <a href="https://www.google.com/maps/@?api=1&amp;map_action=pano&amp;viewpoint=-34.60893,-58.37216" target="_blank" rel="noopener">Recorrerla en Street View</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EL SUELO ============ -->
+<section class="pieza" id="suelo" aria-labelledby="suelo-titulo">
+  <div class="envoltura">
+    <div class="cabeza">
+      <div>
+        <h2 id="suelo-titulo">El suelo</h2>
+        <p class="subtitulo">Pañuelos pintados alrededor de la Pirámide</p>
+      </div>
+      <p class="tesis">La ronda dejó su huella en el piso: un gesto convertido en imagen.</p>
+    </div>
+    <div class="cuerpo">
+      <figure>
+        <img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Pa%C3%B1uelos_blancos%2C_el_s%C3%ADmbolo_de_las_Madres_de_Plaza_de_Mayo_-_panoramio.jpg/1280px-Pa%C3%B1uelos_blancos%2C_el_s%C3%ADmbolo_de_las_Madres_de_Plaza_de_Mayo_-_panoramio.jpg" width="1280" height="960" alt="Silueta blanca de un pañuelo pintada sobre baldosas rojizas, junto a la línea blanca que dibuja el círculo alrededor de la Pirámide; detrás, más pañuelos en fila.">
+        <figcaption>Pañuelos pintados sobre el anillo que rodea la Pirámide, 22 de julio de 2013. Foto: Aleksandrs Timofejev… (Panoramio), <a href="https://commons.wikimedia.org/wiki/File:Pa%C3%B1uelos_blancos,_el_s%C3%ADmbolo_de_las_Madres_de_Plaza_de_Mayo_-_panoramio.jpg">CC BY 3.0</a>.</figcaption>
+      </figure>
+      <div class="analisis" data-pestanas>
+        <div class="pestanas" role="tablist" aria-label="Análisis de El suelo">
+          <button role="tab" id="suelo-t1" aria-controls="suelo-p1" aria-selected="true">Campo</button>
+          <button role="tab" id="suelo-t2" aria-controls="suelo-p2" aria-selected="false" tabindex="-1">Tenor</button>
+          <button role="tab" id="suelo-t3" aria-controls="suelo-p3" aria-selected="false" tabindex="-1">Modo</button>
+        </div>
+        <div class="panel" role="tabpanel" id="suelo-p1" aria-labelledby="suelo-t1">
+          <p><b>Lugar y tiempo.</b> El anillo que rodea la Pirámide, sobre el recorrido de la ronda. La foto es de 2013; hoy los pañuelos se ven sobre un piso gris, como muestra el video aéreo de 2025.</p>
+          <p><b>Tema y participantes.</b> La silueta de un pañuelo anudado, sin texto, repetida a lo largo del círculo. No nombra a nadie: representa a los hijos desaparecidos a través de la prenda de sus madres.</p>
+          <p><b>Anclaje y finalidad.</b> En este lugar, el signo adquiere un anclaje específico: señala el recorrido de la ronda. Su función es simbólica antes que informativa. La Ley 1653 de 2005 declaró Sitio Histórico el área donde está pintado.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="suelo-p2" aria-labelledby="suelo-t2" hidden>
+          <p><b>Quién escribe.</b> Las Madres y quienes las acompañan. Antes de las obras de 2018 levantaron las baldosas pintadas; el 24 de mayo, después de la ronda 2093, volvieron a pintar los pañuelos junto con militantes que las acompañaban.</p>
+          <p><b>A quién interpela.</b> A cualquiera que cruce la plaza: al turista que lo fotografía, a quien lo pisa sin mirar, a quien quiere borrarlo.</p>
+          <p><b>Posición.</b> No explica ni pide permiso: afirma una presencia. Su relación con el Estado cambió sin resolverse. De signo de protesta pasó a patrimonio protegido por ley, y siguió siendo blanco de ataques: stencils en 2014, nuevos daños en 2020.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="suelo-p3" aria-labelledby="suelo-t3" hidden>
+          <p><b>Modos y recursos.</b> Imagen (la silueta), color (blanco sobre el piso), disposición espacial (el círculo) y material (pintura sobre baldosa). Forman un ensamble, en el sentido de Bezemer y Jewitt (2018), en el que los cuatro empujan en la misma dirección: la forma dice madre, el círculo dice ronda, el piso dice aquí.</p>
+          <p><b>De un modo a otro.</b> Lo que nació como movimiento (caminar en ronda) y como gesto (cubrirse la cabeza) quedó fijado como imagen, que según Kress (2005) se rige por la lógica del espacio y de la simultaneidad: todos los pañuelos se ven a la vez. Kress pregunta qué se pierde al pasar de un modo a otro. Acá se pierde el cuerpo y se gana permanencia.</p>
+          <p><b>Cocina del sentido.</b> Barthes (1993) pide «luchar contra cierta inocencia de los objetos» (p. 224). Pocos objetos son tan inocentes como un pañal de tela, y las Madres lo volvieron emblema en la peregrinación a Luján de 1977. Calvino (1994) lo dice a propósito de Zirma: «La memoria es redundante: repite los signos para que la ciudad empiece a existir».</p>
+          <p><b>Género y actos de habla.</b> Conmemorativo. Recuerda y reclama sin una sola palabra.</p>
+        </div>
+      </div>
+    </div>
+    <div class="capas">
+      <h3>Capas de tiempo</h3>
+      <ol>
+        <li><img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Madres_de_Plaza_de_Mayo_Linea_Fundadora_en_la_peregrinaci%C3%B3n_a_la_Bas%C3%ADlica_de_Luj%C3%A1n_1977.tif/lossy-page1-500px-Madres_de_Plaza_de_Mayo_Linea_Fundadora_en_la_peregrinaci%C3%B3n_a_la_Bas%C3%ADlica_de_Luj%C3%A1n_1977.tif.jpg" alt="Mujeres con la cabeza cubierta por pañuelos blancos frente a la Basílica de Luján."><span class="anio">1977</span>Peregrinación a Luján: primera vez que usan el pañuelo como símbolo.<span class="fuente">Foto: Adelina Alaye, <a href="https://commons.wikimedia.org/wiki/File:Madres_de_Plaza_de_Mayo_Linea_Fundadora_en_la_peregrinaci%C3%B3n_a_la_Bas%C3%ADlica_de_Luj%C3%A1n_1977.tif">CC BY-SA 4.0</a></span></li>
+        <li><span class="anio">2005</span>La Ley 1653 declara Sitio Histórico el área que rodea la Pirámide, donde están pintados los pañuelos.<span class="fuente"><a href="https://boletinoficial.buenosaires.gob.ar/normativaba/norma/70454">Boletín Oficial de la Ciudad</a></span></li>
+        <li><img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Plaza_de_Mayo%2C_tiles_by_Plaza_de_mayo_Mothers.jpg/500px-Plaza_de_Mayo%2C_tiles_by_Plaza_de_mayo_Mothers.jpg" alt="Pañuelos pintados sobre el piso de ladrillo, con el Cabildo al fondo."><span class="anio">2007</span>El mismo signo, con el Cabildo al fondo.<span class="fuente">Foto: Vicpics, <a href="https://commons.wikimedia.org/wiki/File:Plaza_de_Mayo,_tiles_by_Plaza_de_mayo_Mothers.jpg">CC BY-SA 4.0</a></span></li>
+        <li><img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Museo_del_Bicentenario_-_Pa%C3%B1uelo_de_las_Madres_de_Plaza_de_Mayo.jpg/500px-Museo_del_Bicentenario_-_Pa%C3%B1uelo_de_las_Madres_de_Plaza_de_Mayo.jpg" alt="Pañuelo blanco bordado exhibido en un museo."><span class="anio">2011</span>Un pañuelo bordado («Aparición con vida de los desaparecidos»), exhibido en el Museo del Bicentenario.<span class="fuente">Foto: Museo del Bicentenario, <a href="https://commons.wikimedia.org/wiki/File:Museo_del_Bicentenario_-_Pa%C3%B1uelo_de_las_Madres_de_Plaza_de_Mayo.jpg">CC BY-SA 3.0</a></span></li>
+        <li><span class="anio">2014</span>Stencils con insultos sobre los pañuelos durante un cacerolazo; al día siguiente, militantes los devuelven a su blanco.<span class="fuente"><a href="https://www.pagina12.com.ar/diario/elpais/1-259964-2014-11-16.html">Página/12, 16/11/2014</a></span></li>
+        <li><span class="anio">2018</span>Por las obras de remodelación, las Madres retiran las baldosas pintadas; el 24 de mayo vuelven a pintar los pañuelos.<span class="fuente"><a href="https://www.tiempoar.com.ar/ta_article/los-panuelos-de-las-madres-volvieron-a-la-plaza-de-mayo/">Tiempo Argentino, 24/5/2018</a></span></li>
+        <li><span class="anio">2020</span>Nuevos daños después de una marcha contra la cuarentena; los pañuelos se restauran en julio.<span class="fuente"><a href="https://www.diariodecuyo.com.ar/noticias/los-panuelos-de-las-madres-volvieron-a-lucir-249525.html">Diario de Cuyo, 14/7/2020</a></span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EL BORDE ============ -->
+<section class="pieza" id="borde" aria-labelledby="borde-titulo">
+  <div class="envoltura">
+    <div class="cabeza">
+      <div>
+        <h2 id="borde-titulo">El borde</h2>
+        <p class="subtitulo">La reja de la Pirámide, convertida en cartelera</p>
+      </div>
+      <p class="tesis">Un soporte puesto para separar, usado para decir.</p>
+    </div>
+    <div class="cuerpo">
+      <figure>
+        <img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Marcha_de_las_Madres_de_la_Plaza_de_Mayo_09.jpg/1280px-Marcha_de_las_Madres_de_la_Plaza_de_Mayo_09.jpg" width="1280" height="853" alt="Reja negra de hierro frente a la base de la Pirámide, con siete carteles de papel escritos a mano y mariposas dibujadas.">
+        <figcaption>Carteles en la reja de la Pirámide durante la ronda 2478, jueves 2 de octubre de 2025. Foto: ProtoplasmaKid, <a href="https://commons.wikimedia.org/wiki/File:Marcha_de_las_Madres_de_la_Plaza_de_Mayo_09.jpg">CC BY-SA 4.0</a>.</figcaption>
+      </figure>
+      <div class="analisis" data-pestanas>
+        <div class="pestanas" role="tablist" aria-label="Análisis de El borde">
+          <button role="tab" id="borde-t1" aria-controls="borde-p1" aria-selected="true">Campo</button>
+          <button role="tab" id="borde-t2" aria-controls="borde-p2" aria-selected="false" tabindex="-1">Tenor</button>
+          <button role="tab" id="borde-t3" aria-controls="borde-p3" aria-selected="false" tabindex="-1">Modo</button>
+        </div>
+        <div class="panel" role="tabpanel" id="borde-p1" aria-labelledby="borde-t1">
+          <p><b>Lugar y tiempo.</b> La reja que rodea el jardín de la Pirámide, el jueves 2 de octubre de 2025, durante la ronda 2478.</p>
+          <p><b>Tema y participantes.</b> Siete carteles escritos a mano, entre ellos «Ni un paso atrás», «Nunca destruirán la memoria», «30.000 almas presentes» y «La Plaza es de las Madres y del pueblo». Los desaparecidos aparecen como presencia; la plaza, como propiedad colectiva.</p>
+          <p><b>Anclaje y finalidad.</b> Celebrar y advertir a la vez. El cartel no informa nada sobre el lugar: lo reclama.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="borde-p2" aria-labelledby="borde-t2" hidden>
+          <p><b>Quién escribe.</b> Manos anónimas, desde abajo, sobre un soporte puesto desde arriba.</p>
+          <p><b>A quién interpela.</b> A quien pasa, que se vuelve coenunciador en el sentido de Maingueneau (2009), y a quien gobierna. «La Plaza es de las Madres y del pueblo» contesta, sin nombrarlos, a los vallados que cada tanto cierran el paso. La misma jugada aparece en 2008, en otra clave política, pintada sobre la base de la Pirámide: «La Plaza es nuestra».</p>
+          <p><b>Identidades y lenguajes sociales.</b> En términos de Gee, el enunciador habla por un nosotros militante y usa un lenguaje reconocible: «compañeros», «presentes», «30.000», «ni un paso atrás».</p>
+        </div>
+        <div class="panel" role="tabpanel" id="borde-p3" aria-labelledby="borde-t3" hidden>
+          <p><b>Modos y recursos.</b> Escritura manuscrita con marcador, dibujo (mariposas), papel blanco y disposición en serie, todo sobre hierro.</p>
+          <p><b>Contraste.</b> El hierro es negro, vertical y permanente; el papel, blanco, horizontal y efímero. Kress (2005) hablaría de permisibilidades distintas: la reja permite cerrar; el papel, decir. Leídos en serie mientras se camina, los carteles arman un camino de lectura que coincide con el de la ronda.</p>
+          <p><b>Intertexto.</b> «Podrán cortar las flores pero jamás detendrán la primavera», frase atribuida popularmente a Neruda, sin fuente verificada.</p>
+          <p><b>Interdiscurso y género.</b> Moustaoui (2019, p. 17) recoge, a partir de Martín Rojo, la apropiación de los espacios urbanos mediante nuevas prácticas lingüísticas: esto es eso, en papel. Género: cartel de protesta. Actos de habla: afirmar, prometer, reclamar.</p>
+        </div>
+      </div>
+    </div>
+    <div class="capas">
+      <h3>Capas de tiempo</h3>
+      <ol>
+        <li><span class="anio">2001</span>Se instalan vallas antidisturbios que terminan siendo, según La Nación, «paisaje permanente».<span class="fuente"><a href="https://www.lanacion.com.ar/sociedad/colocan-rejas-permanentes-en-plaza-de-mayo-en-lugar-de-las-vallas-provisorias-nid2136555">La Nación, 21/5/2018</a></span></li>
+        <li><img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Siempre_con_las_Madres_-_Casa_Rosada.jpg/500px-Siempre_con_las_Madres_-_Casa_Rosada.jpg" alt="Gran pañuelo blanco de tela con la leyenda Siempre con las Madres, colgado de una reja frente a la Casa Rosada."><span class="anio">2011</span>«Siempre con las Madres»: un pañuelo de tela colgado en la reja de la Casa Rosada.<span class="fuente">Foto: Banfield, <a href="https://commons.wikimedia.org/wiki/File:Siempre_con_las_Madres_-_Casa_Rosada.jpg">CC BY-SA 2.5 AR</a></span></li>
+        <li><img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Pir%C3%A1mide_de_Mayo_con_pa%C3%B1uelos.jpg/500px-Pir%C3%A1mide_de_Mayo_con_pa%C3%B1uelos.jpg" alt="La Pirámide rodeada por una reja baja de la que cuelgan pañuelos blancos de tela."><span class="anio">2018</span>Febrero: pañuelos de tela atados a la reja de la Pirámide.<span class="fuente">Foto: Banfield, <a href="https://commons.wikimedia.org/wiki/File:Pir%C3%A1mide_de_Mayo_con_pa%C3%B1uelos.jpg">CC BY-SA 2.5 AR</a></span></li>
+        <li><span class="anio">2018</span>Mayo: la Ciudad cruza la plaza con una reja permanente, de Hipólito Yrigoyen a Rivadavia, por detrás de la Pirámide.<span class="fuente"><a href="https://www.lanacion.com.ar/sociedad/colocan-rejas-permanentes-en-plaza-de-mayo-en-lugar-de-las-vallas-provisorias-nid2136555">La Nación, 21/5/2018</a></span></li>
+        <li><span class="anio">2018</span>29 de noviembre: con la plaza vallada por el G20, la ronda 2120 se hace igual.<span class="fuente"><a href="https://www.tiempoar.com.ar/ta_article/con-la-plaza-de-mayo-vallada-las-madres-no-abandonaron-su-ronda-ni-su-lucha/">Tiempo Argentino, 29/11/2018</a></span></li>
+        <li><span class="anio">2019</span>Diciembre: se retira la última reja.<span class="fuente"><a href="https://diariodecuyo.com.ar/argentina/Mientras-sacaban-la-ultima-reja-de-Plaza-de-Mayo-entonaron-el-himno-peronista-20191209-0079.html">Diario de Cuyo, 9/12/2019</a></span></li>
+        <li><span class="anio">2025</span>Vallas alrededor de la Casa Rosada el Día de la Memoria.<span class="fuente"><a href="https://www.prensa-latina.cu/2025/03/24/vallas-rodean-sede-de-gobierno-argentino-en-dia-de-la-memoria/">Prensa Latina, 24/3/2025</a></span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LA RONDA ============ -->
+<section class="pieza" id="ronda" aria-labelledby="ronda-titulo">
+  <div class="envoltura">
+    <div class="cabeza">
+      <div>
+        <h2 id="ronda-titulo">La ronda</h2>
+        <p class="subtitulo">Cada jueves, alrededor de la Pirámide, desde 1977</p>
+      </div>
+      <p class="tesis">Un texto que se escribe con los pies.</p>
+    </div>
+    <div class="cuerpo">
+      <div>
+        <figure>
+          <video controls preload="none" playsinline poster="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Video_a%C3%A9reo_de_la_ronda_de_las_Abuelas_de_Plaza_de_Mayo.webm/1280px--Video_a%C3%A9reo_de_la_ronda_de_las_Abuelas_de_Plaza_de_Mayo.webm.jpg" aria-label="Video aéreo de la ronda del 2 de octubre de 2025, sin sonido">
+            <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d5/Video_a%C3%A9reo_de_la_ronda_de_las_Abuelas_de_Plaza_de_Mayo.webm/Video_a%C3%A9reo_de_la_ronda_de_las_Abuelas_de_Plaza_de_Mayo.webm.480p.vp9.webm" type="video/webm">
+            <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d5/Video_a%C3%A9reo_de_la_ronda_de_las_Abuelas_de_Plaza_de_Mayo.webm/Video_a%C3%A9reo_de_la_ronda_de_las_Abuelas_de_Plaza_de_Mayo.webm.360p.mpeg4.mov" type="video/quicktime">
+          </video>
+          <figcaption>La ronda del 2 de octubre de 2025 vista desde arriba (2 min 10 s, sin sonido). Video: ProtoplasmaKid, <a href="https://commons.wikimedia.org/wiki/File:Video_a%C3%A9reo_de_la_ronda_de_las_Abuelas_de_Plaza_de_Mayo.webm">CC BY-SA 4.0</a>. El archivo la titula «ronda de las Abuelas»; las fotos del mismo autor y del mismo día la atribuyen a las Madres.</figcaption>
+        </figure>
+        <div class="medios-extra">
+          <figure>
+            <img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Marcha_de_las_Madres_de_la_Plaza_de_Mayo_03.jpg/1280px-Marcha_de_las_Madres_de_la_Plaza_de_Mayo_03.jpg" width="1280" height="853" alt="Madres con pañuelo blanco y acompañantes sostienen una pancarta azul que dice La falta de trabajo es un crimen; atrás, la Casa Rosada.">
+            <figcaption>La pancarta del día. Foto: ProtoplasmaKid, <a href="https://commons.wikimedia.org/wiki/File:Marcha_de_las_Madres_de_la_Plaza_de_Mayo_03.jpg">CC BY-SA 4.0</a>.</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/8/86/Ronda_Plaza_de_Mayo.png" width="630" height="430" alt="Vista aérea en blanco y negro de una multitud que forma un círculo alrededor de la Pirámide.">
+            <figcaption>La misma forma en 1979. Foto: Asamblea Permanente por los Derechos Humanos, <a href="https://commons.wikimedia.org/wiki/File:Ronda_Plaza_de_Mayo.png">CC BY 2.5 AR</a>.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="analisis" data-pestanas>
+        <div class="pestanas" role="tablist" aria-label="Análisis de La ronda">
+          <button role="tab" id="ronda-t1" aria-controls="ronda-p1" aria-selected="true">Campo</button>
+          <button role="tab" id="ronda-t2" aria-controls="ronda-p2" aria-selected="false" tabindex="-1">Tenor</button>
+          <button role="tab" id="ronda-t3" aria-controls="ronda-p3" aria-selected="false" tabindex="-1">Modo</button>
+        </div>
+        <div class="panel" role="tabpanel" id="ronda-p1" aria-labelledby="ronda-t1">
+          <p><b>Lugar y tiempo.</b> El anillo alrededor de la Pirámide, los jueves a las 15.30. La primera reunión fue el sábado 30 de abril de 1977; después, la cita se fijó los jueves. Cuando la policía les ordenó «circulen», las Madres convirtieron la orden en forma.</p>
+          <p><b>Tema y participantes.</b> El mismo recorrido circular, repetido durante casi cincuenta años. Adelante, Madres con pañuelo blanco; detrás, quienes las acompañan. La pancarta de ese día suma un tema que no estaba en 1977: «La falta de trabajo es un crimen».</p>
+          <p><b>Anclaje y finalidad.</b> Su realización en esta plaza vincula el reclamo con la Casa Rosada y con la Pirámide, el monumento a la Revolución de Mayo.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="ronda-p2" aria-labelledby="ronda-t2" hidden>
+          <p><b>Quién escribe.</b> Las Madres de Plaza de Mayo. Según el autor de las fotos, esa tarde la encabezaron Carmen Arias y Josefa «Pina» de Fiore.</p>
+          <p><b>A quién interpela.</b> Al gobierno que tiene enfrente y a la ciudad que pasa.</p>
+          <p><b>Discurso como interacción.</b> Con Maingueneau (2009): un discurso orientado (vuelve siempre al mismo punto), que es acción (caminar es decir) y que se rige por normas propias: día, hora, recorrido, pañuelo. Lo asume un sujeto colectivo: no hay orador, hay un cuerpo hecho de muchos.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="ronda-p3" aria-labelledby="ronda-t3" hidden>
+          <p><b>Modos y recursos.</b> Movimiento, gesto, ritmo semanal, vestimenta (el pañuelo en la cabeza) y escritura en pancartas.</p>
+          <p><b>Lo que muestra el video.</b> Desde arriba y sin sonido, la ronda se vuelve geometría: un círculo que se mueve. La mudez tiene historia: en 1978 una agencia holandesa la describía como una «ronda silenciosa» de los jueves a las 15.</p>
+          <p><b>Dos lógicas a la vez.</b> Kress (2005) asigna a la escritura la lógica del tiempo y la secuencia, y a la imagen la del espacio y la simultaneidad. La ronda junta las dos: es una secuencia en el tiempo que dibuja una figura en el espacio.</p>
+          <p><b>Género y actos de habla.</b> Ni publicitario ni institucional: un ritual político. Testimoniar, insistir, exigir. Lo que el pañuelo pintado fija en el piso, la ronda lo reescribe cada semana.</p>
+        </div>
+      </div>
+    </div>
+    <div class="capas">
+      <h3>Capas de tiempo</h3>
+      <ol>
+        <li><span class="anio">1977</span>Sábado 30 de abril: primera reunión de las Madres en la plaza. Después, ante la orden policial de circular, empiezan a caminar alrededor de la Pirámide, y la cita pasa a los jueves.<span class="fuente"><a href="https://www.minutouno.com/politica/plaza-mayo/murio-hebe-bonafini-que-usaban-panuelos-y-marchaban-circulos-las-madres-n5588109">Minuto Uno, 20/11/2022</a></span></li>
+        <li><img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/WK-voetbal_in_Argentini%C3%AB_voorbij_de_Dwaze_Moeders_houden_nog_steeds_elke_donderdag_om_15%2C_Bestanddeelnr_333001_026.tif/lossy-page1-500px-WK-voetbal_in_Argentini%C3%AB_voorbij_de_Dwaze_Moeders_houden_nog_steeds_elke_donderdag_om_15%2C_Bestanddeelnr_333001_026.tif.jpg" alt="Foto en blanco y negro de mujeres caminando por la plaza; algunas llevan pañuelo."><span class="anio">1978</span>Terminado el Mundial, la agencia Anefo las fotografía y las llama «Dwaze Moeders», madres locas: el apodo con que las nombraba la dictadura.<span class="fuente">Foto: Anefo / Nationaal Archief, <a href="https://commons.wikimedia.org/wiki/File:WK-voetbal_in_Argentini%C3%AB_voorbij_de_Dwaze_Moeders_houden_nog_steeds_elke_donderdag_om_15,_Bestanddeelnr_333001_026.tif">CC0</a></span></li>
+        <li><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/1/13/7%C2%AA_marcha_de_la_Resistencia-_pa%C3%B1uelos_9_y_10_dic_1987.jpg" alt="Foto en blanco y negro de pañuelos grandes colgados de una soga en la plaza, con la Casa Rosada al fondo."><span class="anio">1987</span>Séptima Marcha de la Resistencia: los pañuelos, colgados como banderines.<span class="fuente">Foto: Archivo Hasenberg-Quaretti, <a href="https://commons.wikimedia.org/wiki/File:7%C2%AA_marcha_de_la_Resistencia-_pa%C3%B1uelos_9_y_10_dic_1987.jpg">CC BY-SA 3.0</a></span></li>
+        <li><span class="anio">2018</span>Ronda 2093 (24 de mayo), con repintado de pañuelos; ronda 2120 (29 de noviembre), con la plaza vallada.<span class="fuente"><a href="https://www.tiempoar.com.ar/ta_article/los-panuelos-de-las-madres-volvieron-a-la-plaza-de-mayo/">Tiempo Argentino</a></span></li>
+        <li><span class="anio">2025</span>Ronda 2478 (2 de octubre): la del video.<span class="fuente"><a href="https://commons.wikimedia.org/wiki/File:Marcha_de_las_Madres_de_la_Plaza_de_Mayo_01.jpg">Wikimedia Commons</a></span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EL SONIDO ============ -->
+<section class="pieza" id="sonido" aria-labelledby="sonido-titulo">
+  <div class="envoltura">
+    <div class="cabeza">
+      <div>
+        <h2 id="sonido-titulo">El sonido</h2>
+        <p class="subtitulo">La plaza tiene calendario</p>
+      </div>
+      <p class="tesis">Cada fecha ocupa la plaza con su propia banda sonora.</p>
+    </div>
+    <div class="cuerpo">
+      <div>
+        <figure>
+          <iframe class="sonido-embed sonido" title="Grabación: tambores y marchas en el Día de la Memoria, 24 de marzo de 2017" loading="lazy" src="https://freesound.org/embed/sound/iframe/385847/simple/medium/"></iframe>
+          <figcaption>24 de marzo de 2017, Día de la Memoria por la Verdad y la Justicia: tambores y columnas por Diagonal Norte, del Obelisco hacia la plaza (16 min). Grabación: branlory, <a href="https://freesound.org/people/branlory/sounds/385847/">CC BY 4.0</a>.</figcaption>
+        </figure>
+        <figure>
+          <iframe class="sonido-embed sonido" title="Grabación: ambiente en Plaza de Mayo el 17 de octubre de 2021" loading="lazy" src="https://freesound.org/embed/sound/iframe/593001/simple/medium/"></iframe>
+          <figcaption>17 de octubre de 2021, Día de la Lealtad: ambiente en la plaza con el canto colectivo de la Marcha Peronista, grabado, según su autor, «desde un puesto de choripanes» (7 min 44 s). Grabación: santiagocartier, <a href="https://freesound.org/people/santiagocartier/sounds/593001/">CC0</a>.</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Buenos_Aires_-_Plaza_de_Mayo_-_Puesto_de_choripanes.jpg/500px-Buenos_Aires_-_Plaza_de_Mayo_-_Puesto_de_choripanes.jpg" width="500" height="667" style="max-width:320px" alt="Un vendedor da vuelta chorizos sobre una parrilla humeante en la plaza.">
+          <figcaption>El olor, fuera de cuadro: puesto de choripanes durante una manifestación, 1 de mayo de 2004. Foto: Paul Keller, <a href="https://commons.wikimedia.org/wiki/File:Buenos_Aires_-_Plaza_de_Mayo_-_Puesto_de_choripanes.jpg">CC BY 2.0</a>.</figcaption>
+        </figure>
+      </div>
+      <div class="analisis" data-pestanas>
+        <div class="pestanas" role="tablist" aria-label="Análisis de El sonido">
+          <button role="tab" id="sonido-t1" aria-controls="sonido-p1" aria-selected="true">Campo</button>
+          <button role="tab" id="sonido-t2" aria-controls="sonido-p2" aria-selected="false" tabindex="-1">Tenor</button>
+          <button role="tab" id="sonido-t3" aria-controls="sonido-p3" aria-selected="false" tabindex="-1">Modo</button>
+        </div>
+        <div class="panel" role="tabpanel" id="sonido-p1" aria-labelledby="sonido-t1">
+          <p><b>Lugar y tiempo.</b> Dos fechas del calendario de la plaza: el 24 de marzo de 2017, registrado en el camino de llegada por Diagonal Norte, y el 17 de octubre de 2021, registrado adentro.</p>
+          <p><b>Tema.</b> En la grabación del 24 de marzo de 2017, la memoria llega como percusión antes que como imagen; en la del 17 de octubre de 2021, como canto colectivo.</p>
+          <p><b>Anclaje y finalidad.</b> Celebrar y ocupar. A diferencia de la pintura, el sonido no queda en la plaza: existe mientras dura la marcha. Las dos fechas grabadas, en cambio, vuelven cada año en el calendario.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="sonido-p2" aria-labelledby="sonido-t2" hidden>
+          <p><b>Quién.</b> Columnas, organizaciones, murgas, vendedores. Nadie firma el sonido, pero quien lo oye sabe de quién es.</p>
+          <p><b>A quién interpela.</b> A quien ya está en la plaza, que escucha llegar a los otros.</p>
+          <p><b>Identidades.</b> Con Gee: el ritmo y el canto ponen en juego identidades reconocibles, como la murga, la militancia o el peronismo, sin una sola palabra escrita.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="sonido-p3" aria-labelledby="sonido-t3" hidden>
+          <p><b>Modos.</b> Sonido (percusión, voces, canto), ritmo y volumen; fuera de cuadro, el olor.</p>
+          <p><b>Contraste con la ronda.</b> El corpus contrapone una ronda descrita como silenciosa en 1978 con una marcha acompañada por percusión en 2017. Son situaciones distintas, cuyas formas sonoras también responden a sus condiciones de realización.</p>
+          <p><b>Modo y medio.</b> Kress y van Leeuwen (2001) separan el modo (el sonido) del medio que lo transporta. En este corpus el medio ya no es el aire de la plaza sino un archivo en línea, que se escucha con auriculares y en cualquier fecha.</p>
+          <p><b>El olor.</b> Es el único modo de la consigna que no llega al archivo. Aparece una sola vez, y por escrito: en la descripción de una grabación hecha desde un puesto de choripanes.</p>
+          <p><b>Género y actos de habla.</b> Ritual festivo y político: convocar, celebrar, recordar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EL CENTRO ============ -->
+<section class="pieza" id="centro" aria-labelledby="centro-titulo">
+  <div class="envoltura">
+    <div class="cabeza">
+      <div>
+        <h2 id="centro-titulo">El centro</h2>
+        <p class="subtitulo">La Pirámide, escrita por todos</p>
+      </div>
+      <p class="tesis">El monumento más antiguo de la plaza es también su superficie más escrita.</p>
+    </div>
+    <div class="cuerpo">
+      <figure>
+        <img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Pir%C3%A1mide_de_Mayo_covered_with_photos_of_the_desaparecidos.jpg/1280px-Pir%C3%A1mide_de_Mayo_covered_with_photos_of_the_desaparecidos.jpg" width="1280" height="960" alt="La Pirámide de Mayo cubierta por un andamio con cientos de fotos en blanco y negro; cintas de banderines blancos bajan desde la estatua y, en la base, una pancarta dice No al pago de la deuda externa.">
+        <figcaption>La Pirámide cubierta con fotos de desaparecidos y pancartas contra el pago de la deuda externa, 8 de diciembre de 2004. Foto: WikiLaurent, <a href="https://commons.wikimedia.org/wiki/File:Pir%C3%A1mide_de_Mayo_covered_with_photos_of_the_desaparecidos.jpg">CC BY-SA 3.0</a>.</figcaption>
+      </figure>
+      <div class="analisis" data-pestanas>
+        <div class="pestanas" role="tablist" aria-label="Análisis de El centro">
+          <button role="tab" id="centro-t1" aria-controls="centro-p1" aria-selected="true">Campo</button>
+          <button role="tab" id="centro-t2" aria-controls="centro-p2" aria-selected="false" tabindex="-1">Tenor</button>
+          <button role="tab" id="centro-t3" aria-controls="centro-p3" aria-selected="false" tabindex="-1">Modo</button>
+        </div>
+        <div class="panel" role="tabpanel" id="centro-p1" aria-labelledby="centro-t1">
+          <p><b>Lugar y tiempo.</b> El centro de la plaza. La Pirámide se levantó en 1811 para el primer aniversario de la Revolución de Mayo; Prilidiano Pueyrredón la reconstruyó en 1856 y en 1912 la trasladaron al centro. Desde 2005 guarda al pie las cenizas de Azucena Villaflor, fundadora de las Madres.</p>
+          <p><b>Tema.</b> En la foto, el monumento patrio desaparece bajo las caras de los desaparecidos y un reclamo económico: «No al pago de la deuda externa». En la base se lee una pancarta de la Asociación Madres de Plaza de Mayo.</p>
+          <p><b>Anclaje y finalidad.</b> El monumento consagra la patria; quienes lo intervienen lo usan para decir quién falta en ella.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="centro-p2" aria-labelledby="centro-t2" hidden>
+          <p><b>Quiénes escriben.</b> Desde arriba, el Estado: el escudo en relieve, la placa de 1891, la iluminación oficial (en 2013 la Ciudad la iluminó con los colores del Vaticano por la elección de Francisco). Desde abajo, todos los demás: fotos, pancartas, aerosol.</p>
+          <p><b>Escrituras que se contestan.</b> En 2008, consignas a favor de las retenciones y «La Plaza es nuestra»; en 2011, una pintada docente contra el gobierno, debajo del escudo: «Ni nacional ni popular». Cada intervención supone que el monumento es de quien lo escribe.</p>
+          <p><b>Con Calvino.</b> En Tamara, «la ciudad dice todo lo que debes pensar, te hace repetir su discurso» (Calvino, 1994). La Pirámide quiere ser Tamara, y no la dejan.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="centro-p3" aria-labelledby="centro-t3" hidden>
+          <p><b>Modos y recursos.</b> Escultura y relieve (la Libertad, el escudo), inscripción en bronce, luz, fotografía, pancarta y aerosol: la pieza con más modos del corpus.</p>
+          <p><b>Jerarquías.</b> En la imagen, explica Kress (2005), las relaciones se vuelven relaciones espaciales; la plaza las aplica a escala urbana: el centro es del monumento. Las intervenciones trabajan con lo que tienen, cuerda, papel y pintura, y le discuten el lugar: lo envuelven, lo rodean, lo tapan.</p>
+          <p><b>Género, actos de habla e interdiscurso.</b> Conmemorativo y patrio en el origen; de protesta en cada intervención. Conmemorar, consagrar, reclamar, impugnar. Conviven el discurso patrio (1810), el católico, el de los derechos humanos y el económico.</p>
+        </div>
+      </div>
+    </div>
+    <div class="capas">
+      <h3>Capas de tiempo</h3>
+      <ol>
+        <li><img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Placa_Pir%C3%A1mide_de_Mayo%2C_Felipe_Pereyra_de_Lucena_y_Manuel_Artigas.jpg/500px-Placa_Pir%C3%A1mide_de_Mayo%2C_Felipe_Pereyra_de_Lucena_y_Manuel_Artigas.jpg" alt="Placa de metal con los nombres Felipe Pereyra de Lucena y Manuel Artigas, sobre mármol blanco."><span class="anio">1891</span>Placa a Felipe Pereyra de Lucena y Manuel Artigas, primeros oficiales muertos por la independencia.<span class="fuente">Foto (2025): Roberto Fiadone, <a href="https://commons.wikimedia.org/wiki/File:Placa_Pir%C3%A1mide_de_Mayo,_Felipe_Pereyra_de_Lucena_y_Manuel_Artigas.jpg">CC BY 4.0</a></span></li>
+        <li><img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Pir%C3%A1mide_de_Mayo%2C_Azucena_Villaflor_01.jpg/500px-Pir%C3%A1mide_de_Mayo%2C_Azucena_Villaflor_01.jpg" alt="Pequeño monolito con placa al pie de la Pirámide, en el jardín."><span class="anio">2005</span>8 de diciembre: las cenizas de Azucena Villaflor, al pie de la Pirámide.<span class="fuente">Foto (2019): Roberto Fiadone, <a href="https://commons.wikimedia.org/wiki/File:Pir%C3%A1mide_de_Mayo,_Azucena_Villaflor_01.jpg">CC BY-SA 4.0</a></span></li>
+        <li><img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Pir%C3%A1mide_de_Mayo_Aguanten_las_retenciones.jpg/500px-Pir%C3%A1mide_de_Mayo_Aguanten_las_retenciones.jpg" alt="Base de la Pirámide con pintadas negras: La Plaza es nuestra, Sí retenciones, Aguante las retenciones."><span class="anio">2008</span>Pintadas a favor de las retenciones: «La Plaza es nuestra».<span class="fuente">Foto: Banfield, <a href="https://commons.wikimedia.org/wiki/File:Pir%C3%A1mide_de_Mayo_Aguanten_las_retenciones.jpg">CC BY 3.0</a></span></li>
+        <li><img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Neither_National_Nor_Popular_-_Graffito_on_Plaza_de_Mayo_Obelisk_-_Buenos_Aires_-_Argentina.jpg/500px-Neither_National_Nor_Popular_-_Graffito_on_Plaza_de_Mayo_Obelisk_-_Buenos_Aires_-_Argentina.jpg" alt="Escudo nacional en relieve sobre mármol blanco y, debajo, una pintada naranja: Ni nacional ni popular."><span class="anio">2011</span>Debajo del escudo, en aerosol naranja: «Ni nacional ni popular».<span class="fuente">Foto: Adam Jones, <a href="https://commons.wikimedia.org/wiki/File:Neither_National_Nor_Popular_-_Graffito_on_Plaza_de_Mayo_Obelisk_-_Buenos_Aires_-_Argentina.jpg">CC BY-SA 3.0</a></span></li>
+        <li><img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/La_Pir%C3%A1mide_de_Mayo_iluminada_con_los_colores_del_Vaticano_%288557964266%29.jpg/500px-La_Pir%C3%A1mide_de_Mayo_iluminada_con_los_colores_del_Vaticano_%288557964266%29.jpg" alt="La Pirámide de noche, iluminada de amarillo y blanco."><span class="anio">2013</span>La Ciudad la ilumina con los colores del Vaticano por la elección de Francisco.<span class="fuente">Foto: Gobierno de la Ciudad de Buenos Aires, <a href="https://commons.wikimedia.org/wiki/File:La_Pir%C3%A1mide_de_Mayo_iluminada_con_los_colores_del_Vaticano_(8557964266).jpg">CC BY 2.0</a></span></li>
+        <li><span class="anio">2026</span>8 y 9 de noviembre: León XIV visita la Casa Rosada y la Catedral, a los dos lados de la plaza.<span class="fuente"><a href="https://www.forbesargentina.com/today/la-visita-papa-agenda-confirmada-su-actividad-argentina-minuto-minuto-n101680">Forbes Argentina</a></span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SÍNTESIS ============ -->
+<section class="sintesis" id="conjunto" aria-labelledby="conjunto-titulo">
+  <div class="envoltura">
+    <h2 id="conjunto-titulo">Lo que dice el conjunto</h2>
+    <div class="tabla-caja">
+      <table>
+        <caption class="oculto">Las cinco piezas comparadas</caption>
+        <thead>
+          <tr><th scope="col">Pieza</th><th scope="col">Quién escribe</th><th scope="col">Modo que manda</th><th scope="col">Qué hace</th><th scope="col">Con qué otros discursos</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>El suelo</td><td><span class="chip abajo">Desde abajo</span><span class="chip arriba">Protegido por ley</span><br>Las Madres</td><td>Imagen pintada</td><td>Marca una presencia</td><td>Derechos humanos, maternidad, religiosidad popular (Luján)</td></tr>
+          <tr><td>El borde</td><td><span class="chip arriba">Soporte del Estado</span><span class="chip abajo">Carteles anónimos</span></td><td>Escritura a mano</td><td>Reclama la plaza</td><td>Militancia, poesía (atribuida a Neruda)</td></tr>
+          <tr><td>La ronda</td><td><span class="chip abajo">Desde abajo</span><br>Madres de Plaza de Mayo</td><td>Movimiento y gesto</td><td>Insiste, testimonia</td><td>Derechos humanos, trabajo (pancarta de 2025)</td></tr>
+          <tr><td>El sonido</td><td><span class="chip abajo">Desde abajo</span><br>Columnas, murgas, vendedores</td><td>Percusión y canto</td><td>Ocupa la plaza por fecha</td><td>Memoria (24 de marzo), peronismo (17 de octubre)</td></tr>
+          <tr><td>El centro</td><td><span class="chip arriba">Monumento oficial</span><span class="chip abajo">Intervenciones</span></td><td>Escultura, inscripción, luz</td><td>Consagra y es impugnado</td><td>Patria (1810), Iglesia, deuda externa</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="columnas">
+      <div>
+        <h3>Dos escrituras y un centro</h3>
+        <p>La memoria escribe en horizontal, a la altura del pie, y se repite: pañuelos pintados, ronda semanal, una marcha que vuelve cada 24 de marzo. El control escribe en vertical y en el borde: rejas que rodean, vallas que cortan. Las dos giran alrededor del mismo centro, un monumento que el Estado levantó en 1811 y que todos vuelven a escribir.</p>
+        <h3>Arriba y abajo no alcanzan</h3>
+        <p>Moustaoui (2019, p. 13) advierte que las categorías de signos de arriba y de abajo se presentan como absolutas, cuando en la realidad son más complejas. La plaza lo confirma. Los pañuelos nacieron abajo y hoy los protege una ley; la reja se puso desde arriba y la usan de cartelera desde abajo; en 2011, un pañuelo con la leyenda «Siempre con las Madres» colgó de la reja de la Casa Rosada.</p>
+      </div>
+      <div>
+        <h3>Un lugar en disputa</h3>
+        <p>Lo que se lee en este corpus no informa: reclama. «La Plaza es nuestra» (2008) y «La Plaza es de las Madres y del pueblo» (2025) responden la misma pregunta que una valla: de quién es este lugar. Pons Rodríguez (2012) liga la visibilidad de las lenguas a la identidad de quienes las usan. Acá lo que se vuelve visible no es una lengua sino un sujeto colectivo, las Madres, que convirtió su manera de caminar en escritura.</p>
+        <h3>Lo contrario de Zoe</h3>
+        <p>Calvino (1994) imagina en Zoe una ciudad donde cualquier lugar puede servir para cualquier cosa, y la cierra con una pregunta: «¿Qué línea separa el dentro del fuera […]?». La Plaza de Mayo funciona al revés: sus lugares tienen sentidos asignados, y esa línea existe y está en disputa. La ponen las rejas; la cruzan los pañuelos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LÍNEA DE TIEMPO ============ -->
+<section class="tiempo" id="tiempo" aria-labelledby="tiempo-titulo">
+  <div class="envoltura">
+    <h2 id="tiempo-titulo">La plaza en el tiempo</h2>
+    <p class="clave"><span style="background:#FFFFFF"></span>Escritura de la memoria &nbsp;&nbsp; <span style="background:var(--rosada)"></span>Escritura del Estado</p>
+    <ol>
+      <li class="estado"><span class="anio">1811</span><p>Se levanta la Pirámide para el primer aniversario de la Revolución de Mayo.</p></li>
+      <li class="estado"><span class="anio">1856</span><p>Prilidiano Pueyrredón la reconstruye sobre la original; la corona una Libertad de Joseph Dubourdieu.</p></li>
+      <li class="estado"><span class="anio">1912</span><p>Se la traslada 63 metros, al centro de la plaza.</p></li>
+      <li class="memoria"><span class="anio">1977</span><p>Sábado 30 de abril: primera reunión de las Madres en la plaza. Después, la orden policial de circular da origen a la ronda, que se fija los jueves. Octubre: en la peregrinación a Luján usan por primera vez el pañuelo.</p></li>
+      <li class="memoria"><span class="anio">1978</span><p>Una agencia holandesa fotografía la «ronda silenciosa» de los jueves.</p></li>
+      <li class="estado"><span class="anio">2001</span><p>Vallas antidisturbios que se quedan durante años.</p></li>
+      <li class="memoria"><span class="anio">2005</span><p>La Ley 1653 declara Sitio Histórico el área de los pañuelos (10 de marzo). Las cenizas de Azucena Villaflor, al pie de la Pirámide (8 de diciembre).</p></li>
+      <li class="memoria"><span class="anio">2014</span><p>Stencils sobre los pañuelos el 13 de noviembre; al día siguiente, militantes los limpian.</p></li>
+      <li class="estado"><span class="anio">2018</span><p>Remodelación de la plaza. Las Madres retiran las baldosas pintadas y repintan el 24 de mayo. Ese mes, una reja permanente cruza la plaza.</p></li>
+      <li class="estado"><span class="anio">2019</span><p>Diciembre: se retira la última reja.</p></li>
+      <li class="estado"><span class="anio">2025</span><p>Vallados alrededor de la Casa Rosada en días de marcha, como el Día de la Memoria.</p></li>
+      <li class="memoria"><span class="anio">2025</span><p>2 de octubre: ronda 2478, con carteles en la reja de la Pirámide.</p></li>
+      <li class="estado"><span class="anio">2026</span><p>8 y 9 de noviembre: León XIV en la Casa Rosada y en la Catedral.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ LO QUE LA PANTALLA NO TRANSMITE ============ -->
+<section class="pantalla" id="pantalla" aria-labelledby="pantalla-titulo">
+  <div class="envoltura">
+    <div class="texto">
+      <h2 id="pantalla-titulo">Lo que la pantalla no transmite</h2>
+      <p>Este paisaje llegó de segunda mano, y eso también es un dato del análisis.</p>
+      <p>Se pierden el olor, la escala de la Pirámide, la temperatura de la piedra, el cansancio de la vuelta y, sobre todo, el aquí que hace funcionar a cada pañuelo. En la pantalla, «aquí» no señala nada.</p>
+      <p>Se ganan fechas, autores y capas de tiempo que nadie ve parado en la plaza.</p>
+      <p>Kress y van Leeuwen (2001) distinguen cuatro estratos en la comunicación: discurso, diseño, producción y distribución. Este trabajo accede a la plaza mediante registros ya distribuidos y los reorganiza en una nueva composición multimodal: lo que se lee acá no es la plaza, sino su archivo recompuesto.</p>
+      <p>Y aparece una escritura más, la del archivo. En Wikimedia Commons, una foto se titula «Cenizas de la verdadera Madre de Plaza de Mayo», mientras su propia descripción la llama, sin adjetivos, lápida de Azucena Villaflor. Un video se titula «ronda de las Abuelas», mientras las fotos que su autor tomó ese mismo día la atribuyen a las Madres. Los títulos también toman partido o se equivocan: también son paisaje.</p>
+      <p>Cada copia hereda algo del lugar y pierde algo. Leer a distancia obliga a declarar qué.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CRÉDITOS ============ -->
+<section class="creditos" id="creditos" aria-labelledby="creditos-titulo">
+  <div class="envoltura">
+    <h2 id="creditos-titulo">Fuentes y créditos</h2>
+
+    <h3>Imágenes, video y sonido</h3>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th scope="col">Archivo</th><th scope="col">Autor</th><th scope="col">Fecha</th><th scope="col">Licencia</th></tr></thead>
+        <tbody>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Pa%C3%B1uelos_blancos,_el_s%C3%ADmbolo_de_las_Madres_de_Plaza_de_Mayo_-_panoramio.jpg">Pañuelos blancos, el símbolo de las Madres de Plaza de Mayo</a></td><td>Aleksandrs Timofejev… (Panoramio)</td><td>22/7/2013</td><td>CC BY 3.0</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Marcha_de_las_Madres_de_la_Plaza_de_Mayo_09.jpg">Marcha de las Madres de la Plaza de Mayo 09</a></td><td>ProtoplasmaKid</td><td>2/10/2025</td><td>CC BY-SA 4.0</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Marcha_de_las_Madres_de_la_Plaza_de_Mayo_03.jpg">Marcha de las Madres de la Plaza de Mayo 03</a></td><td>ProtoplasmaKid</td><td>2/10/2025</td><td>CC BY-SA 4.0</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Video_a%C3%A9reo_de_la_ronda_de_las_Abuelas_de_Plaza_de_Mayo.webm">Video aéreo de la ronda de las Abuelas de Plaza de Mayo</a></td><td>ProtoplasmaKid</td><td>2/10/2025</td><td>CC BY-SA 4.0</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Ronda_Plaza_de_Mayo.png">Ronda Plaza de Mayo</a></td><td>Asamblea Permanente por los Derechos Humanos</td><td>1979</td><td>CC BY 2.5 AR</td></tr>
+          <tr><td><a href="https://freesound.org/people/branlory/sounds/385847/">Drums and marches in Buenos Aires during Day of Remembrance</a></td><td>branlory</td><td>24/3/2017</td><td>CC BY 4.0</td></tr>
+          <tr><td><a href="https://freesound.org/people/santiagocartier/sounds/593001/">Ambiente Plaza de Mayo, Marcha por Día de la Lealtad Peronista, toma 1</a></td><td>santiagocartier</td><td>17/10/2021</td><td>CC0</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Buenos_Aires_-_Plaza_de_Mayo_-_Puesto_de_choripanes.jpg">Puesto de choripanes</a></td><td>Paul Keller</td><td>1/5/2004</td><td>CC BY 2.0</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Pir%C3%A1mide_de_Mayo_covered_with_photos_of_the_desaparecidos.jpg">Pirámide de Mayo covered with photos of the desaparecidos</a></td><td>WikiLaurent</td><td>8/12/2004</td><td>CC BY-SA 3.0</td></tr>
+          <tr><td>Capas de tiempo</td><td colspan="3">Adelina Alaye (CC BY-SA 4.0), Vicpics (CC BY-SA 4.0), Museo del Bicentenario (CC BY-SA 3.0), Banfield (CC BY-SA 2.5 AR y CC BY 3.0), Anefo / Nationaal Archief (CC0), Archivo Hasenberg-Quaretti (CC BY-SA 3.0), Roberto Fiadone (CC BY 4.0 y CC BY-SA 4.0), Adam Jones (CC BY-SA 3.0), Gobierno de la Ciudad de Buenos Aires (CC BY 2.0). Cada imagen enlaza a su ficha.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Prensa, normas y referencias de contexto</h3>
+    <ul>
+      <li>Ciudad de Buenos Aires. (2005). <i>Ley 1653</i>. Boletín Oficial. <a href="https://boletinoficial.buenosaires.gob.ar/normativaba/norma/70454">Enlace</a></li>
+      <li>A lavar los pañuelos. (16 de noviembre de 2014). <i>Página/12</i>. <a href="https://www.pagina12.com.ar/diario/elpais/1-259964-2014-11-16.html">Enlace</a></li>
+      <li>Mejía, V. (21 de mayo de 2018). Polémica por la colocación de rejas en la Plaza de Mayo para proteger la Casa Rosada. <i>La Nación</i>. <a href="https://www.lanacion.com.ar/sociedad/colocan-rejas-permanentes-en-plaza-de-mayo-en-lugar-de-las-vallas-provisorias-nid2136555">Enlace</a></li>
+      <li>Los pañuelos de las Madres volvieron a la Plaza de Mayo. (24 de mayo de 2018). <i>Tiempo Argentino</i>. <a href="https://www.tiempoar.com.ar/ta_article/los-panuelos-de-las-madres-volvieron-a-la-plaza-de-mayo/">Enlace</a></li>
+      <li>Con la Plaza de Mayo vallada, las Madres no abandonaron su ronda ni su lucha. (29 de noviembre de 2018). <i>Tiempo Argentino</i>. <a href="https://www.tiempoar.com.ar/ta_article/con-la-plaza-de-mayo-vallada-las-madres-no-abandonaron-su-ronda-ni-su-lucha/">Enlace</a></li>
+      <li>Mientras sacaban la última reja de Plaza de Mayo entonaron el himno peronista. (9 de diciembre de 2019). <i>Diario de Cuyo</i>. <a href="https://diariodecuyo.com.ar/argentina/Mientras-sacaban-la-ultima-reja-de-Plaza-de-Mayo-entonaron-el-himno-peronista-20191209-0079.html">Enlace</a></li>
+      <li>Los pañuelos de las Madres volvieron a lucir. (14 de julio de 2020). <i>Diario de Cuyo</i>. <a href="https://www.diariodecuyo.com.ar/noticias/los-panuelos-de-las-madres-volvieron-a-lucir-249525.html">Enlace</a></li>
+      <li>Murió Hebe de Bonafini: por qué usaban pañuelos y marchaban en círculos las Madres de Plaza de Mayo. (20 de noviembre de 2022). <i>Minuto Uno</i>. <a href="https://www.minutouno.com/politica/plaza-mayo/murio-hebe-bonafini-que-usaban-panuelos-y-marchaban-circulos-las-madres-n5588109">Enlace</a></li>
+      <li>Vallas rodean sede de Gobierno argentino en Día de la Memoria. (24 de marzo de 2025). <i>Prensa Latina</i>. <a href="https://www.prensa-latina.cu/2025/03/24/vallas-rodean-sede-de-gobierno-argentino-en-dia-de-la-memoria/">Enlace</a></li>
+      <li>Della Vecchia, N. (3 de noviembre de 2026). La visita del Papa: la agenda confirmada de su actividad en Argentina, minuto a minuto. <i>Forbes Argentina</i>. <a href="https://www.forbesargentina.com/today/la-visita-papa-agenda-confirmada-su-actividad-argentina-minuto-minuto-n101680">Enlace</a></li>
+      <li>Pirámide de Mayo. (s. f.). En <i>Wikipedia</i>. Consultado el 18 de noviembre de 2026. <a href="https://en.wikipedia.org/wiki/Pir%C3%A1mide_de_Mayo">Enlace</a></li>
+    </ul>
+
+    <h3>Bibliografía</h3>
+    <ul class="biblio">
+      <li>Barthes, R. (1993). La cocina del sentido. En <i>La aventura semiológica</i> (R. Alcalde, Trad.; pp. 223–225). Paidós. (Trabajo original publicado en 1964)</li>
+      <li>Bezemer, J., y Jewitt, C. (2018). Multimodality: A guide for linguists. En L. Litosseliti (Ed.), <i>Research methods in linguistics</i> (2.ª ed., pp. 229–248). Bloomsbury Academic. Traducción de cátedra: «Multimodalidad. Una guía para lingüistas».</li>
+      <li>Calvino, I. (1994). Las ciudades y los signos. En <i>Las ciudades invisibles</i>. Siruela. (Trabajo original publicado en 1972)</li>
+      <li>Gee, J. P. (2011). <i>How to do discourse analysis: A toolkit</i>. Routledge.</li>
+      <li>Halliday, M. A. K. (1982). <i>El lenguaje como semiótica social</i>. Fondo de Cultura Económica. (Trabajo original publicado en 1978)</li>
+      <li>Kress, G. (2005). <i>El alfabetismo en la era de los nuevos medios de comunicación</i>. Ediciones El Aljibe; Enseñanza Abierta de Andalucía.</li>
+      <li>Kress, G., y van Leeuwen, T. (2001). <i>Multimodal discourse: The modes and media of contemporary communication</i>. Arnold. Introducción (pp. 1–23), traducción de L. H. Molina, FBA-UNLP, 2011.</li>
+      <li>Maingueneau, D. (2009). <i>Análisis de textos de comunicación</i>. Nueva Visión.</li>
+      <li>Moustaoui Srhir, A. (2019). Dos décadas de estudios del Paisaje Lingüístico: enfoques teórico-metodológicos y nuevos desafíos en la investigación. <i>Signo y Seña</i>, (35), 7–26. <a href="https://doi.org/10.34096/sys.n35.6935">https://doi.org/10.34096/sys.n35.6935</a></li>
+      <li>Pons Rodríguez, L. (2012). <i>El paisaje lingüístico de Sevilla. Lenguas y variedades en el escenario urbano hispalense</i>. Diputación de Sevilla.</li>
+    </ul>
+
+    <h3>Tipografía</h3>
+    <p class="declaracion">Archivo, de Omnibus-Type, y Alegreya, de Huerta Tipográfica: dos familias libres diseñadas en la Argentina. En una infografía sobre modos, la tipografía también es uno.</p>
+
+    <h3>Declaración de uso de inteligencia artificial</h3>
+    <p class="declaracion">Utilicé herramientas de inteligencia artificial como apoyo en la elaboración de este trabajo. La selección de materiales, la revisión de fuentes y las decisiones de análisis e interpretación estuvieron a mi cargo.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="envoltura">
+    <p>Las imágenes, el video y los sonidos se cargan desde Wikimedia Commons y Freesound, y cada uno conserva su licencia. El mapa es de OpenStreetMap.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  var cx = 420, cy = 330;
+
+  // Líneas radiales del anillo
+  var radios = document.getElementById('radios');
+  for (var k = 0; k < 16; k++) {
+    var a = (k / 16) * Math.PI * 2;
+    var l = document.createElementNS(NS, 'line');
+    l.setAttribute('x1', cx + Math.cos(a) * 108);
+    l.setAttribute('y1', cy + Math.sin(a) * 108);
+    l.setAttribute('x2', cx + Math.cos(a) * 232);
+    l.setAttribute('y2', cy + Math.sin(a) * 232);
+    l.setAttribute('class', 'radio');
+    radios.appendChild(l);
+  }
+
+  // Pañuelos pintados: dos filas a lo largo del anillo
+  var capa = document.getElementById('panuelos');
+  var forma = 'M0,-11 C6,-11 9,-6 9,-1 L12,6 L0,12 L-12,6 L-9,-1 C-9,-6 -6,-11 0,-11 Z';
+  var i = 0;
+  [[206, 0], [140, 0.5]].forEach(function (fila) {
+    for (var k = 0; k < 16; k++) {
+      var ang = ((k + fila[1]) / 16) * Math.PI * 2 + Math.PI / 16;
+      var x = cx + Math.cos(ang) * fila[0];
+      var y = cy + Math.sin(ang) * fila[0];
+      var g = document.createElementNS(NS, 'g');
+      g.setAttribute('class', 'panuelo');
+      g.setAttribute('transform', 'translate(' + x.toFixed(1) + ' ' + y.toFixed(1) + ') rotate(' + ((ang * 180 / Math.PI) + 90).toFixed(1) + ')');
+      g.style.setProperty('--i', i++);
+      var p = document.createElementNS(NS, 'path');
+      p.setAttribute('d', forma);
+      var c = document.createElementNS(NS, 'ellipse');
+      c.setAttribute('class', 'cara');
+      c.setAttribute('cx', 0); c.setAttribute('cy', -3); c.setAttribute('rx', 3.4); c.setAttribute('ry', 4.3);
+      g.appendChild(p); g.appendChild(c);
+      capa.appendChild(g);
+    }
+  });
+
+  // Carteles en la reja: marcas blancas sobre el anillo rosa
+  var carteles = document.getElementById('carteles');
+  for (var k = 0; k < 7; k++) {
+    var ang2 = -Math.PI * 0.62 + k * 0.17;
+    var r = document.createElementNS(NS, 'rect');
+    r.setAttribute('x', -4); r.setAttribute('y', -5); r.setAttribute('width', 8); r.setAttribute('height', 10);
+    r.setAttribute('transform', 'translate(' + (cx + Math.cos(ang2) * 101).toFixed(1) + ' ' + (cy + Math.sin(ang2) * 101).toFixed(1) + ') rotate(' + ((ang2 * 180 / Math.PI) + 90).toFixed(1) + ')');
+    carteles.appendChild(r);
+  }
+
+  // Botón de rejas y vallados
+  var plano = document.getElementById('plano');
+  var boton = document.getElementById('ver-rejas');
+  boton.addEventListener('click', function () {
+    var on = boton.getAttribute('aria-pressed') !== 'true';
+    boton.setAttribute('aria-pressed', on ? 'true' : 'false');
+    plano.classList.toggle('ver-rejas', on);
+    boton.textContent = on ? 'Ocultar rejas y vallados' : 'Mostrar rejas y vallados';
+  });
+
+  // Pestañas accesibles
+  document.querySelectorAll('[data-pestanas]').forEach(function (caja) {
+    var tabs = Array.prototype.slice.call(caja.querySelectorAll('[role="tab"]'));
+    function activar(tab, foco) {
+      tabs.forEach(function (t) {
+        var sel = t === tab;
+        t.setAttribute('aria-selected', sel ? 'true' : 'false');
+        t.tabIndex = sel ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !sel;
+      });
+      if (foco) tab.focus();
+    }
+    tabs.forEach(function (tab, n) {
+      tab.addEventListener('click', function () { activar(tab, false); });
+      tab.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') { e.preventDefault(); activar(tabs[(n + 1) % tabs.length], true); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); activar(tabs[(n - 1 + tabs.length) % tabs.length], true); }
+        if (e.key === 'Home') { e.preventDefault(); activar(tabs[0], true); }
+        if (e.key === 'End') { e.preventDefault(); activar(tabs[tabs.length - 1], true); }
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
